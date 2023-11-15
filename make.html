@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>일정 생성기</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        let schedule = []; // 일정을 저장할 배열
+
+        function addTask() {
+            let time = document.getElementById("time").value;
+            let task = document.getElementById("task").value;
+
+            // 일정을 배열에 추가
+            schedule.push({time: time, task: task});
+
+            // 시간 순서대로 정렬
+            schedule.sort((a, b) => a.time.localeCompare(b.time));
+
+            // 테이블 초기화
+            let table = document.getElementById("scheduleTable");
+            while (table.rows.length > 1) {
+                table.deleteRow(1);
+            }
+
+            // 정렬된 일정을 테이블에 추가
+            for (let i = 0; i < schedule.length; i++) {
+                let row = table.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = schedule[i].time;
+                cell2.innerHTML = schedule[i].task;
+            }
+
+            document.getElementById("time").value = "";
+            document.getElementById("task").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>일정 생성기</h1>
+    <label for="time">시간:</label><br>
+    <input type="time" id="time" name="time"><br>
+    <label for="task">할 일:</label><br>
+    <input type="text" id="task" name="task"><br>
+    <button onclick="addTask()">추가</button>
+    <h2>일정</h2>
+    <table id="scheduleTable">
+        <tr>
+            <th>시간</th>
+            <th>할 일</th>
+        </tr>
+    </table>
+</body>
+</html>
