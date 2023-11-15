@@ -1,57 +1,146 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-    <meta charset="EUC-KR">
-    <title>급식표</title>
+	<style>
+		.button {
+		  background-color: orange;
+		  border: none;
+		  color: rgb(255, 255, 255); 
+		  padding: 8px 20px;
+		  text-align: center;	
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  border-radius: 4px; 
+		}
+		</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Miracle Morning</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
-    <p>
-        <h1>
-            20231001 
-            <a>
-                10월 1일 메뉴
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" onclick="location.reload();">
+                	<span class="glyphicon glyphicon-fire"></span> 
+                	Miracle Morning
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#" onclick="location.reload();">Home</a>
+                    </li>
+                    <li>
+                        <a href="calander.html">Today's Plan</a>
+					</li>
+                    <li>
+                        <a href="make.html">Make Plan</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+	<!-- Feature -->
+	<div class="jumbotron feature">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-equalizer"></span> Be a Better Version of You</h1>
+			<p>Everyday you will see yourself improved</p>
+			<p><a class="btn btn-primary" href="calander.html">Check Out Plan</a></p>
+		</div>
+	</div>
+
+
+    <!-- Heading -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">Uncomparable Quality of Morning</h1>
+                <p class="lead text-center">The morning routine helps us set the tone for the day, better allowing us to control our schedules rather than our schedule controlling us. As we start each day fresh, we can better focus on what is in front of us, where to prioritize our time, and, ultimately, increase our productivity.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promos -->
+	<div class="container-fluid">
+        <div class="row promo">
+        	<a href="#">
+				<div class="col-md-4 promo-item item-1">
+					<h3>
+						Fresh
+					</h3>
+				</div>
             </a>
-        </h1>
-    </p>
-    <p>
-        <h1>
-            20231002 
-            <a>
-                10월 2일 메뉴
+            <a href="#">
+				<div class="col-md-4 promo-item item-2">
+					<h3>
+						Efficient
+					</h3>
+				</div>
             </a>
-        </h1>
-    </p>
-    <p>
-        <h1>
-            20231003 
-            <a>
-                10월 3일 메뉴
+			
+			<a href="#">
+				<div class="col-md-4 promo-item item-3">
+					<h3>
+						Motivative
+					</h3>
+				</div>
             </a>
-        </h1>
-    </p>
-    <p>
-        <h1>
-            20231004
-            <a>
-                10월 4일 메뉴
-            </a>
-        </h1>
-    </p>
-    <p>
-        <h1>
-            20231111 
-            <a>
-                11월 11일 메뉴
-            </a>
-        </h1>
-    </p>
-    <p>
-        <h1>
-            20240101 
-            <a>
-                24년 1월 1일 메뉴
-            </a>
-        </h1>
-    </p>
+        </div>
+    </div><!-- /.container-fluid -->
+
+	
+			
+
+	
+	<div class="container text-center">
+
+		<h1>Start with making a plan</h1>
+		
+		<img class="img-responsive img-circle center-block" src="images/service.jpg" alt="">
+		
+				<a class="btn btn-primary" href="make.html">Make Plan Now</button>
+		
+	</div><!--/.container-->
+	
+		
+	
+
+		
+	
 </body>
+
 </html>
