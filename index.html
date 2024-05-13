@@ -1,146 +1,167 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-	<style>
-		.button {
-		  background-color: orange;
-		  border: none;
-		  color: rgb(255, 255, 255); 
-		  padding: 8px 20px;
-		  text-align: center;	
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;
-		  margin: 4px 2px;
-		  cursor: pointer;
-		  border-radius: 4px; 
-		}
-		</style>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta charset="UTF-8">
+<title>계획 일정표</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to right, #757f9a, #d7dde8); /* 그라디언트 배경 추가 */
+  }
 
-    <title>Miracle Morning</title>
+  .container {
+    width: 70%;
+    display: flex; /* 컨테이너를 flex로 설정 */
+    flex-direction: column; /* 항목들을 세로로 배열 */
+    align-items: center; /* 중앙 정렬 */
+  }
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 100%; /* 섹션의 폭을 조정 */
+    display: flex; /* 섹션 내부를 flex로 설정 */
+    justify-content: space-between; /* 섹션 내부 항목을 양 끝으로 정렬 */
+    flex-wrap: wrap; /* 내용이 많을 경우 다음 줄로 넘김 */
+  }
 
-    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-    <link href="css/custom.css" rel="stylesheet">
+  .plan-creation-section, .calendar-section {
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색을 반투명하게 조정 */
+    width: 100%; /* 섹션의 폭을 100%로 설정 */
+  }
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  .input-group, #calendar, .plan {
+    width: 100%; /* 입력 그룹, 캘린더, 계획 항목의 폭을 100%로 설정 */
+  }
 
+  .input-group label, .input-group input {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 100%; /* 레이블과 입력란의 가로 폭을 100%로 설정 */
+    height: 50px;
+    font-size: 20px;
+  }
+
+  #addPlanButton {
+    display: block;
+    margin: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #addPlanButton:hover {
+    background-color: #45a049;
+  }
+
+  .plan {
+    background-color: #dff0d8;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    display: inline-block; /* 계획 항목을 인라인 블록으로 설정 */
+    width: calc(50% - 10px); /* 계획 항목의 폭을 조정 */
+    margin-right: 10px; /* 계획 항목 간의 간격 조정 */
+    text-align: center; /* 중앙 정렬 */
+  }
+
+  #calendar th, #calendar td {
+    text-align: center; /* 테이블 헤더와 셀을 중앙 정렬 */
+  }
+  .cont {
+    background-color: #dff0d8;
+  }
+
+</style>
 </head>
-
 <body>
+<div class="container">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Logo and responsive toggle -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#" onclick="location.reload();">
-                	<span class="glyphicon glyphicon-fire"></span> 
-                	Miracle Morning
-                </a>
-            </div>
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="#" onclick="location.reload();">Home</a>
-                    </li>
-                    <li>
-                        <a href=".html">Today's Plan</a>
-					</li>
-                    <li>
-                        <a href="make.html">Make Plan</a>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav>
-
-	<!-- Feature -->
-	<div class="jumbotron feature">
-		<div class="container">
-			<h1><span class="glyphicon glyphicon-equalizer"></span> Be a Better Version of You</h1>
-			<p>Everyday you will see yourself improved</p>
-			<p><a class="btn btn-primary" href="make.html">Check Out Plan</a></p>
-		</div>
-	</div>
-
-
-    <!-- Heading -->
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1 class="text-center">Uncomparable Quality of Morning</h1>
-                <p class="lead text-center">The morning routine helps us set the tone for the day, better allowing us to control our schedules rather than our schedule controlling us. As we start each day fresh, we can better focus on what is in front of us, where to prioritize our time, and, ultimately, increase our productivity.</p>
-            </div>
-        </div>
+  <div class="section plan-creation-section">
+    <h2>계획 추가</h2>
+    <div class="input-group">
+      <label for="dateInput">날짜:</label>
+      <input type="date" id="dateInput">
     </div>
+    <div class="input-group">
+      <label for="timeInput">시간:</label>
+      <input type="time" id="timeInput">
+    </div>
+    <div class="input-group">
+      <label for="planInput">계획:</label>
+      <input type="text" id="planInput">
+    </div>
+    <button id="addPlanButton" onclick="addPlan()">계획 추가</button>
+  </div>
 
-    <!-- Promos -->
-	<div class="container-fluid">
-        <div class="row promo">
-        	<a href="#">
-				<div class="col-md-4 promo-item item-1">
-					<h3>
-						Fresh
-					</h3>
-				</div>
-            </a>
-            <a href="#">
-				<div class="col-md-4 promo-item item-2">
-					<h3>
-						Efficient
-					</h3>
-				</div>
-            </a>
-			
-			<a href="#">
-				<div class="col-md-4 promo-item item-3">
-					<h3>
-						Motivative
-					</h3>
-				</div>
-            </a>
-        </div>
-    </div><!-- /.container-fluid -->
+  <div class="section calendar-section">
+    <h2>일정표</h2>
+    <table id="calendar">
+      <tr>
+        <th>날짜</th>
+        <th>계획</th>
+      </tr>
+    </table>
+  </div>
 
-	
-			
+</div>
 
-	
-	<div class="container text-center">
+<script>
+let plans = [];
 
-		<h1>Start with making a plan</h1>
-		
-		<img class="img-responsive img-circle center-block" src="images/service.jpg" alt="">
-		
-				<a class="btn btn-primary" href="make.html">Make Plan Now</button>
-		
-	</div><!--/.container-->
-	
-		
-	
+function addPlan() {
+  const date = document.getElementById("dateInput").value;
+  const time = document.getElementById("timeInput").value;
+  const planText = document.getElementById("planInput").value;
 
-		
-	
+  if (!date || !time || !planText) {
+    alert("모든 필드를 채워주세요!");
+    return;
+  }
+
+  const plan = { date, time, planText };
+  plans.push(plan);
+  sortPlans();
+  displayPlans();
+}
+
+function sortPlans() {
+  plans.sort((a, b) => {
+    if (a.date < b.date) return -1;
+    if (a.date > b.date) return 1;
+    if (a.time < b.time) return -1;
+    if (a.time > b.time) return 1;
+    return 0;
+  });
+}
+
+function displayPlans() {
+  const calendar = document.getElementById("calendar");
+  calendar.innerHTML = '<tr><th>날짜</th><th>계획</th></tr>';
+
+  plans.forEach(plan => {
+    const row = calendar.insertRow(-1);
+    const dateCell = row.insertCell(0);
+    const planCell = row.insertCell(1);
+
+    dateCell.innerText = plan.date;
+    const planDiv = document.createElement("div");
+    planDiv.classList.add("plan");
+    planDiv.innerText = `${plan.time} - ${plan.planText}`;
+    planCell.appendChild(planDiv);
+  });
+}
+</script>
+
 </body>
-
 </html>
